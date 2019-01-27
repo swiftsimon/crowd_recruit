@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login/Login'
+import Login from './components/Login/Login';
+import Apply from './components/Apply/Apply';
 
 class App extends Component {
   render() {
@@ -9,9 +10,7 @@ class App extends Component {
         <header className="App-header">
           Crowd Sourced Tech Recruiting
         <div className="button-container">
-          <button className="button button-main">Apply</button>
-          <button className="button button-main">Post</button>
-          <button className="button button-main">Refer</button>
+          <Apply />
         </div>
         <Login />
         </header>
