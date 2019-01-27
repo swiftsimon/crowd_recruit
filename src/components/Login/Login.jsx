@@ -10,6 +10,7 @@ class Login extends Component {
 
         this.state = {
         }
+        console.log(props)
     }
 
     handleClick = (e) => {
@@ -22,7 +23,7 @@ class Login extends Component {
         return(
             <button 
             onClick={this.handleClick}
-            class ="button button-main">
+            className ="button button-main">
                 Login
             </button>
         );
