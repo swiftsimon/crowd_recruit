@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Login.css';
+import '../../App.css';
 
 class Login extends Component {
 
@@ -8,20 +9,20 @@ class Login extends Component {
         this.handleClick = this.handleClick.bind(this);
 
         this.state = {
-            isLoggedIn: false
         }
+    }
 
-        handleClick(e) {
-            e.preventDefault();
-            console.log("login clicked");
-            this.setState({isLoggedIn: true})
-        }
+    handleClick = (e) => {
+        e.preventDefault();
+        console.log("login clicked");
     }
 
     render() {
        
         return(
-            <button onclick={handleClick}>
+            <button 
+            onClick={this.handleClick}
+            class ="button button-main">
                 Login
             </button>
         );
