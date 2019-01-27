@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import './Apply.css';
+import './Jobs.css';
 import '../../App.css'
 
-class Apply extends Component {
+class Jobs extends Component {
 
     constructor (props){
         super(props);
-        this.applyClick = this.applyClick.bind(this);
+        this.jobsClick = this.jobsClick.bind(this);
 
         this.state = {
 
         }
     }
 
-    applyClick = () => {
-        console.log('Apply Clicked')
+    jobsClick = () => {
+        console.log('View Jobs Clicked')
     }
 
     render() {
@@ -22,12 +22,12 @@ class Apply extends Component {
         return (
             <button
             className="button button-main"
-            onClick={this.applyClick}>
-                Apply
+            onClick={this.jobsClick}>
+                View Jobs
             </button>
         );
     } 
 }
 
-export default Apply;
+export default Jobs;
 
