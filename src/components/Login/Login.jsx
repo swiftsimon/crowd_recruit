@@ -14,7 +14,7 @@ class Login extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        console.log("login clicked");
+        console.log("Login Clicked");
     }
 
     render() {
