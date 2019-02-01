@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Jobs from './components/HomeButtons/HomeButtons';
+import HomeButtons from './components/HomeButtons/HomeButtons';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <header className="App-header">
           Crowd Sourced Tech Recruiting
           <div className="button-container">
-            <Jobs />
+            <HomeButtons />
           </div>
         </header>
       </div>
