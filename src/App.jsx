@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './components/Login/Login';
-import Jobs from './components/Jobs/Jobs';
-import Post from './components/Post/Post';
-import Refer from './components/Refer/Refer';
+import Jobs from './components/HomeButtons/HomeButtons';
 
 class App extends Component {
   render() {
@@ -13,10 +10,7 @@ class App extends Component {
           Crowd Sourced Tech Recruiting
           <div className="button-container">
             <Jobs />
-            <Post />
-            <Refer />
           </div>
-          <Login name="Simon"/>
         </header>
       </div>
     );
