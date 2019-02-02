@@ -4,8 +4,6 @@ import './App.css';
 import HomeButtons from './components/HomeButtons';
 import Login from './components/Login';
 
-
-
 class App extends Component {
 
   render() {
