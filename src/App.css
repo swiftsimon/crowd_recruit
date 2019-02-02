@@ -21,36 +21,16 @@
   color: white;
 }
 
-.button-container {
+.grid {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
+  flex-direction: column;
 }
 
-.button {
-  margin: 5px;
-  font-size: 2vmin;
-  border: none;
-  text-decoration: none;
+.ui.buttons {
+    margin-top: 15px;
 }
 
-.button:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  .btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; 
+.ui.button {
+    margin-top: 15px;
 }
 
-.button:link, .button:visited{
-  text-decoration: none;
-}
-
-.button-main {
-  width: 100px;
-  height: 30px;
-  background-color: rgb(65, 65, 65);
-  color: white;
-}
