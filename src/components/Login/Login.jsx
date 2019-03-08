@@ -4,30 +4,29 @@ import '../../App.css';
 
 class Login extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
 
-        this.state = {
-        }
-        console.log(props)
+    this.state = {
+    }
+  }
+
+  loginClick = (e) => {
+    e.preventDefault();
+    console.log("Login Clicked");
     }
 
-    handleClick = (e) => {
-        e.preventDefault();
-        console.log("Login Clicked");
-    }
-
-    render() {
+  render() {
        
-        return(
-            <button 
-            onClick={this.handleClick}
-            className ="button button-main">
-                Login
-            </button>
-        );
-    }
+    return(
+      <button 
+        onClick={this.loginClick}
+        className ="button button-main">
+          Login
+      </button>
+    );
+  }
 }
 
 export default Login;
