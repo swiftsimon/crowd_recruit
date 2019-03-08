@@ -4,30 +4,28 @@ import '../../App.css'
 
 class Jobs extends Component {
 
-    constructor (props){
-        super(props);
-        this.jobsClick = this.jobsClick.bind(this);
+  constructor (props){
+    super(props);
+    this.jobsClick = this.jobsClick.bind(this);
 
-        this.state = {
-
-        }
+    this.state = {
     }
+  }
 
-    jobsClick = () => {
-        console.log('View Jobs Clicked')
-    }
+  jobsClick = () => {
+    console.log('View Jobs Clicked')
+  }
 
-    render() {
+  render() {
 
-        return (
-            <button
-            className="button button-main"
-            onClick={this.jobsClick}>
-                View Jobs
-            </button>
-        );
-    } 
+  return (
+    <button
+      className="button button-main"
+      onClick={this.jobsClick}>
+        View Jobs
+      </button>
+    );
+  } 
 }
 
 export default Jobs;
-
