@@ -6,10 +6,6 @@ class HomeButtons extends Component {
 
   constructor (props){
     super(props);
-    // this.jobsClick = this.jobsClick.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
-    // this.postClick = this.postClick.bind(this);
-    // this.referClick = this.referClick.bind(this);
         
     this.state = {
       check: true,
@@ -54,4 +50,3 @@ class HomeButtons extends Component {
 }
 
 export default HomeButtons;
-
