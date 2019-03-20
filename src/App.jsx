@@ -3,6 +3,7 @@ import './App.css';
 // import faker from 'faker';
 import HomeButtons from './components/HomeButtons';
 import Login from './components/Login';
+import JobTile from './components/JobTile'
 
 class App extends Component {
 
@@ -14,6 +15,7 @@ class App extends Component {
           <div className="grid">
             <HomeButtons />
             <Login />
+            <JobTile />
           </div>
         </header>
       </div>
