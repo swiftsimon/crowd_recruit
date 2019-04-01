@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "faker": "^4.1.0",
+    "firebase": "^5.9.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.2"
