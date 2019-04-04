@@ -5,10 +5,15 @@ class SearchBar extends Component {
         searchTerm: ''
     }
 
+    onFormSubmit(e) {
+        e.preventDefault();
+    }
+
     render() {
         return(
-            <div>
-                <form>
+            <div className="ui segment">
+                <form onSubmit={ this.onFormSubmit } className="ui from">
+                    <label>Job Search</label>
                     <input 
                         type="text"
                         value={this.state.searchTerm}
