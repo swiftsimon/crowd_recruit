@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Firebase from './services/firebase';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './App.css';
 // import faker from 'faker';
@@ -33,22 +33,26 @@ class App extends Component {
 
   }
 
-
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          Crowd Sourced Tech Recruiting
-          <div className="grid">
-            <SearchBar onTermSubmit={this.onSearchSubmit} />
-            <HomeButtons />
-            <Login />
-            <JobTile />
-          </div>
-          <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>          
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            Crowd Sourced Tech Recruiting
+            <div className="grid">
+              <div style={ {display: "flex"} }>
+                <Link to="/login">Login</Link>
+                <Link to="/jobs">Jobs</Link>
+              </div>
+              <SearchBar onTermSubmit={this.onSearchSubmit} />
+              <HomeButtons />
+              <Route path="/login" component={ Login } />
+              <Route path="/jobs" component={ JobTile } />
+            </div>
+            <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>          
+          </header>
+        </div>
+      </Router>
     );
   }
 }
