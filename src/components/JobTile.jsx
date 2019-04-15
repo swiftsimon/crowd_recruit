@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Firebase from '../services/firebase';
+// import Firebase from '../services/firebase';
+import SearchBar from './SearchBar';
 
 class JobTile extends Component {
 
@@ -10,6 +11,8 @@ class JobTile extends Component {
 
   render() {
     return (
+      <div>
+      <SearchBar />
       <div className="ui link items">
         <div className="item">
           <div className="ui tiny image">
@@ -22,6 +25,7 @@ class JobTile extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
   }

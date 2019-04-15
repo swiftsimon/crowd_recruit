@@ -7,19 +7,10 @@ import './App.css';
 import HomeButtons from './components/HomeButtons';
 import Login from './components/Login';
 import JobTile from './components/JobTile';
-import SearchBar from './components/SearchBar';
 var uniqid = require('uniqid');
 
 
 class App extends Component {
-
-  onSearchSubmit = (term) => {
-    console.log(term)
-    Firebase.ref('JOBS/Toronto/Digital Ocean').set({
-      100555: "web developer"
-    });
-
-  }
 
   retrieve = () => {
     console.log(uniqid())
@@ -30,7 +21,6 @@ class App extends Component {
         // var key = snapshot.key; // "ada"
         // var childKey = snapshot.child("name/last").key; // "last"
       });
-
   }
 
   render() {
@@ -44,12 +34,10 @@ class App extends Component {
                 <Link to="/login">Login</Link>
                 <Link to="/jobs">Jobs</Link>
               </div>
-              <SearchBar onTermSubmit={this.onSearchSubmit} />
-              <HomeButtons />
+              <Route path="/" exact component={ HomeButtons } />
               <Route path="/login" component={ Login } />
               <Route path="/jobs" component={ JobTile } />
             </div>
-            <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>          
           </header>
         </div>
       </Router>
