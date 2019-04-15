@@ -6,7 +6,7 @@ import './App.css';
 // import faker from 'faker';
 import HomeButtons from './components/HomeButtons';
 import Login from './components/Login';
-import JobTile from './components/JobTile';
+import JobsContainer from './components/JobsContainer';
 import SearchBar from './components/SearchBar';
 var uniqid = require('uniqid');
 
@@ -44,12 +44,12 @@ class App extends Component {
                 <Link to="/login">Login</Link>
                 <Link to="/jobs">Jobs</Link>
               </div>
-              <SearchBar onTermSubmit={this.onSearchSubmit} />
-              <HomeButtons />
+              {/* <SearchBar onTermSubmit={this.onSearchSubmit} />
+              <HomeButtons /> */}
               <Route path="/login" component={ Login } />
-              <Route path="/jobs" component={ JobTile } />
+              <Route path="/jobs" component={ JobsContainer } />
             </div>
-            <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>          
+            {/* <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>           */}
           </header>
         </div>
       </Router>
