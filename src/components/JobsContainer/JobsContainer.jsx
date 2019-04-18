@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JobTile from './JobTile';
+import JobTile from './JobTile/JobTile';
 
 class JobsContainer extends Component {
     

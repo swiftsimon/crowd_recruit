@@ -6,7 +6,7 @@ import './App.css';
 // import faker from 'faker';
 import HomeButtons from './components/HomeButtons';
 import Login from './components/Login';
-import JobsContainer from './components/JobsContainer';
+import JobsContainer from './components/JobsContainer/JobsContainer';
 import SearchBar from './components/SearchBar';
 var uniqid = require('uniqid');
 
@@ -37,9 +37,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
+          <header>
             Crowd Sourced Tech Recruiting
-            <div className="grid">
+          </header>
+          <div className="grid">
               <div style={ {display: "flex"} }>
                 <Link to="/login">Login</Link>
                 <Link to="/jobs">Jobs</Link>
@@ -50,7 +51,6 @@ class App extends Component {
               <Route path="/jobs" component={ JobsContainer } />
             </div>
             {/* <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>           */}
-          </header>
         </div>
       </Router>
     );
