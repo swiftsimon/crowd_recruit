@@ -35,7 +35,9 @@ class Login extends Component {
     if (isLoggedIn) {
       button = ''
     } else {
-      button = <button className="ui primary button" onClick={this.handleLoginClick}>Log In</button>
+      button = <div className="ui buttons">
+        <button className="ui button" onClick={this.handleLoginClick}>Log In</button>
+        </div>
     }
 
     if(showForm) {

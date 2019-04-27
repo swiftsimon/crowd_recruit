@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './App.css';
 // import faker from 'faker';
-import HomeButtons from './components/HomeButtons';
+import Home from './components/Home';
 import Login from './components/Login';
 import JobTile from './components/JobTile';
 var uniqid = require('uniqid');
@@ -29,15 +29,10 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             Crowd Sourced Tech Recruiting
-            <div className="grid">
-              <div style={ {display: "flex"} }>
-                <Link to="/login">Login</Link>
-                <Link to="/jobs">Jobs</Link>
-              </div>
-              <Route path="/" exact component={ HomeButtons } />
+         
+              <Route path="/" exact component={ Home } />
               <Route path="/login" component={ Login } />
               <Route path="/jobs" component={ JobTile } />
-            </div>
           </header>
         </div>
       </Router>
