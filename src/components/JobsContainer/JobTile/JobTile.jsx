@@ -37,7 +37,7 @@ class JobTile extends Component {
         </div>
         <div className="jobs-right">
           <div className='job-icons'>
-            <button>&rarr;</button>
+            <button onClick={ this.props.toggleFlyout }>&rarr;</button>
             <button>&#x271A;</button>
           </div>
         </div>
