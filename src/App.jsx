@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import './App.css';
 // import faker from 'faker';
-import HomeButtons from './components/HomeButtons';
+import Home from './components/Home';
 import Login from './components/Login';
 import JobsContainer from './components/JobsContainer/JobsContainer';
 import SearchBar from './components/SearchBar';
@@ -12,14 +12,6 @@ var uniqid = require('uniqid');
 
 
 class App extends Component {
-
-  onSearchSubmit = (term) => {
-    console.log(term)
-    Firebase.ref('JOBS/Toronto/Digital Ocean').set({
-      100555: "web developer"
-    });
-
-  }
 
   retrieve = () => {
     console.log(uniqid())
@@ -30,7 +22,6 @@ class App extends Component {
         // var key = snapshot.key; // "ada"
         // var childKey = snapshot.child("name/last").key; // "last"
       });
-
   }
 
   render() {
