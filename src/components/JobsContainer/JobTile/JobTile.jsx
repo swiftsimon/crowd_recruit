@@ -12,17 +12,6 @@ class JobTile extends Component {
   render() {
     return (
       <div className="ui link items job-tile">
-        {/* <div className="item">
-          <div className="ui tiny image">
-            <img src="" alt="job tile" />
-          </div>
-          <div className="content">
-            <div className="header">Lead Developer Role</div>
-            <div className="description">
-              <p>Opportunity to join a great team using React and Redux</p>
-            </div>
-          </div>
-        </div> */}
         <div className="jobs-left">
           <div className='job-titles'>
             <h2 className='jobs-title'>Job Title</h2>    
