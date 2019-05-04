@@ -28,7 +28,6 @@ class JobsContainer extends Component {
 
   onTermSubmit = (query) => {
     console.log("searching for", query)
-
     // TODO send query to database
   }
 

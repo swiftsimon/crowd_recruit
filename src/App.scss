@@ -7,7 +7,6 @@
 }
 
 .App {
-  /*text-align: center;*/
   
 }
 
@@ -18,10 +17,6 @@
   display: grid;
   grid-template-columns: calc(50px + 5vw) auto calc(50px + 5vw);
   grid-template-rows: 50px auto 50px;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
   color: white;
 }
 
@@ -34,7 +29,6 @@
   border: 3px solid black;
   width: auto;
   font-size: 25px;
-  /* position: absolute; */
 }
 
 .app-title {
@@ -58,5 +52,4 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* width: 50vw; */
 }
