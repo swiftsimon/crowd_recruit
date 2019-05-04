@@ -34,8 +34,6 @@ class App extends Component {
           <div className="home-grid">
             <Link to="/login">Login</Link>
             <Link to="/jobs">View Jobs</Link>
-            {/* <SearchBar onTermSubmit={this.onSearchSubmit} />
-            <HomeButtons /> */}
           </div>
           <div className="login-form-container">
             <Route path="/login" component={ Login } />
