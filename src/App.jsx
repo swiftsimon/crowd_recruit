@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import Firebase from './services/firebase';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import './App.css';
+import './App.scss';
 // import faker from 'faker';
 import Home from './components/Home';
 import Login from './components/Login';
 import JobsContainer from './components/JobsContainer/JobsContainer';
-import SearchBar from './components/SearchBar';
 var uniqid = require('uniqid');
 
 
@@ -28,20 +27,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header>
-            Crowd Sourced Tech Recruiting
-          </header>
-          <div className="grid">
-              <div style={ {display: "flex"} }>
-                <Link to="/login">Login</Link>
-                <Link to="/jobs">Jobs</Link>
-              </div>
-              {/* <SearchBar onTermSubmit={this.onSearchSubmit} />
-              <HomeButtons /> */}
-              <Route path="/login" component={ Login } />
-              <Route path="/jobs" component={ JobsContainer } />
-            </div>
-            {/* <button className="ui primary button" onClick={this.retrieve}>RETRIEVE</button>           */}
+          <header className="App-header">
+            <Link className="home-button" to="/">HOME</Link>
+            <div className="app-title">Crowd Sourced Tech Recruiting</div>
+          </header> 
+          <div className="home-grid">
+            <Link to="/login">Login</Link>
+            <Link to="/jobs">View Jobs</Link>
+          </div>
+          <div className="login-form-container">
+            <Route path="/login" component={ Login } />
+            <Route path="/jobs" component={ JobsContainer } />
+          </div>
         </div>
       </Router>
     );
