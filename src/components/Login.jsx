@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
-import "../App.css";
+import { Link } from 'react-router-dom';
+
 import Form from './Form';
+
+import "../App.scss";
 
 class Login extends Component {
 
   constructor(props) {
    super(props);
-   this.handleLoginClick = this.handleLoginClick.bind(this);
+  //  this.handleLoginClick = this.handleLoginClick.bind(this);
    this.handleLogoutClick = this.handleLogoutClick.bind(this);
 
     this.state = {
       isLoggedIn: false,
-      showForm: false,
+      showForm: true,
     }
   }
 
-  handleLoginClick() {
+  fakeLogin = () => {
     this.setState({
-      isLoggedIn: !this.state.isLoggedIn,
-      showForm: true,
-    });
+      isLoggedIn: true,
+      showForm: false
+    })
   }
 
   handleLogoutClick() {
-    this.setState({isLoggedIn: false});
+    this.setState({
+      isLoggedIn: false,
+      showForm: true
+    });
   }
 
   render() {
@@ -32,22 +38,23 @@ class Login extends Component {
     let button;
     let form;
 
-    if (isLoggedIn) {
-      button = ''
-    } else {
-      button = <div className="ui buttons">
-        <button className="ui button" onClick={this.handleLoginClick}>Log In</button>
-        </div>
-    }
-
     if(showForm) {
       form = <Form />
+    } else {
+      form = <div>
+        You Are Logged In,
+        <Link to="/jobs">View Jobs Now</Link>
+        <button className="ui button" onClick={this.handleLogoutClick}>Log Out</button>
+      </div>
     }
+    console.log(this.state)
+
 
     return(
-    <div>
-      { button }
+    <div className="login-form">
+      {/* { button } */}
       { form }
+      <button className="ui button" onClick={ this.fakeLogin }>Fake Login</button>
     </div>
     )
   }
