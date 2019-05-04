@@ -9,7 +9,6 @@ class Login extends Component {
 
   constructor(props) {
    super(props);
-  //  this.handleLoginClick = this.handleLoginClick.bind(this);
    this.handleLogoutClick = this.handleLogoutClick.bind(this);
 
     this.state = {
@@ -52,7 +51,6 @@ class Login extends Component {
 
     return(
     <div className="login-form">
-      {/* { button } */}
       { form }
       <button className="ui button" onClick={ this.fakeLogin }>Fake Login</button>
     </div>
