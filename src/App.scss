@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: inherit; 
+}
+
+.App {
+  /*text-align: center;*/
+  
+}
+
+.App-header {
+  background-color: #575a5f;
+  min-height: 30vh;
+  text-align: center;
+  display: grid;
+  grid-template-columns: calc(50px + 5vw) auto calc(50px + 5vw);
+  grid-template-rows: 50px auto 50px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  color: white;
+}
+
+.ui.button {
+  margin: 10px;
+}
+
+.home-button {
+  grid-column: 1;
+  border: 3px solid black;
+  width: auto;
+  font-size: 25px;
+  /* position: absolute; */
+}
+
+.app-title {
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
+  font-size: calc(20px + 2vw);
+  padding-top: 10px;
+}
+
+.home-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.home-grid a {
+  padding: 20px;
+}
+
+.login-form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* width: 50vw; */
+}
