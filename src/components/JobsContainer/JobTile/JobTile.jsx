@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Firebase from '../../../services/firebase';
+import Firebase from '../../../services/firebase';
 import './JobTile.scss';
 
 class JobTile extends Component {
@@ -7,6 +7,11 @@ class JobTile extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+
+    Firebase.ref('jobs').once('value').then(function(snapshot) {
+      console.log(snapshot.val())
+     
+    });
   }
 
   render() {

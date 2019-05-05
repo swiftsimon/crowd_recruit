@@ -1,5 +1,6 @@
 import React, { Component, createRef } from 'react';
 import Firebase from '../../../services/firebase';
+import generateUID from 'uniqid';
 import './PostJob.scss';
 
 export default class JobPost extends Component {
@@ -14,6 +15,8 @@ export default class JobPost extends Component {
         this.shortDescRef = createRef('shortDescRef');
         this.longDescRef = createRef('longDescRef');
         this.roleDetailsRef = createRef('roleDetailsRef');
+
+        console.log(generateUID())
     }
 
     componentDidMount() {
@@ -31,7 +34,7 @@ export default class JobPost extends Component {
                 roleDetails: this.roleDetailsRef.current.value,
             }
 
-            Firebase.ref('jobs').set({
+            Firebase.ref(`JOBS/${ generateUID() }/${ this.locationRef.current.value }/${ this.companyRef.current.value }`).set({
                 ...jobPostData
             });
         });
