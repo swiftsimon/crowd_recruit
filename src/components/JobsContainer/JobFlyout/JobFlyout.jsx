@@ -8,7 +8,7 @@ export default class Flyout extends Component {
             <div className='flyout-container'>
                 <div className='flyout-title-container'>
                     <h2 className='flyout-job-title'>Title</h2>
-                    <h2 class='flyout-company-name'>Company</h2>
+                    <h2 className='flyout-company-name'>Company</h2>
                 </div>
 
                 <div className='flyout-attraction-container'>

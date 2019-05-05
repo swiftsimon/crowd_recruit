@@ -14,7 +14,7 @@ class JobTile extends Component {
       <div className="ui link items job-tile">
         <div className="jobs-left">
           <div className='job-titles'>
-            <h2 className='jobs-title'>Job Title</h2>    
+            <h2 className='jobs-title'>Job Title</h2>   
             <h2 className='job-company-name'>Company Name</h2> 
           </div>
 
