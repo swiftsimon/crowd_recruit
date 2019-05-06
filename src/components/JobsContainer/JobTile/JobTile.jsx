@@ -6,9 +6,19 @@ class JobTile extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      showFlyout: false,
+    }
 
-    
+    this.toggleFlyout = this.toggleFlyout.bind(this);
+  }
+
+  toggleFlyout() {
+    // make some api call to get flyout data and then mount flyout component with data as props
+    let showFlyout = this.state.showFlyout ? false : true;
+    this.setState({
+      showFlyout,
+    });
   }
 
   render() {
@@ -40,13 +50,13 @@ class JobTile extends Component {
           </div>
           <div className="jobs-right">
             <div className='job-icons'>
-              <button onClick={ this.props.toggleFlyout }>&rarr;</button>
+              <button onClick={ this.toggleFlyout }>&rarr;</button>
               <button>&#x271A;</button>
             </div>
           </div>
         </div>
 
-        <JobFlyout jobInfo={ this.props.jobInfo }/>
+        { this.state.showFlyout && <JobFlyout  jobInfo={ this.props.jobInfo }/> }
       </div>
     )
   }
