@@ -33,11 +33,13 @@ class App extends Component {
           </header> 
           <div className="home-grid">
             <Link to="/login">Login</Link>
-            <Link to="/jobs">View Jobs</Link>
+            <Link to="/post-job">Post A Job</Link>
+            <Link to="/view-jobs">View Jobs</Link>
           </div>
           <div className="login-form-container">
             <Route path="/login" component={ Login } />
-            <Route path="/jobs" component={ JobsContainer } />
+            <Route path="/post-job" component={ JobsContainer } />
+            <Route path="/view-jobs" component={ JobsContainer } />
           </div>
         </div>
       </Router>
