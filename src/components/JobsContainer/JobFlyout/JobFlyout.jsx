@@ -4,19 +4,30 @@ import './JobFlyout.scss';
 export default class Flyout extends Component {
 
     render() {
+
+        const {
+            title, 
+            company, 
+            location, 
+            tagline, 
+            shortDesc, 
+            longDesc,
+            roleDetails
+          } = this.props.jobInfo;
+
         return (
             <div className='flyout-container'>
                 <div className='flyout-title-container'>
-                    <h2 className='flyout-job-title'>Title</h2>
-                    <h2 className='flyout-company-name'>Company</h2>
+                    <h2 className='flyout-job-title'>{ title }</h2>
+                    <h2 className='flyout-company-name'>{ company }</h2>
                 </div>
 
                 <div className='flyout-attraction-container'>
-                    Small paragraph, attract the reader, why should they work for you, be inspiring, what makes this role/company great!
+                    { longDesc }
                 </div>
 
                 <div className='flyout-job-details-container'>
-                    Talk about the role, what will the applicant be doing, who will they interact with, how will their time be split
+                    { roleDetails }
                 </div>
 
                 <div className='flyout-haves-container'>

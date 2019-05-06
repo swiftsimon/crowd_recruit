@@ -15,8 +15,6 @@ export default class JobPost extends Component {
         this.shortDescRef = createRef('shortDescRef');
         this.longDescRef = createRef('longDescRef');
         this.roleDetailsRef = createRef('roleDetailsRef');
-
-        console.log(generateUID())
     }
 
     componentDidMount() {
