@@ -42,7 +42,7 @@ export default class JobPost extends Component {
         // note: we will in time have to link each posted job to the ID of the logged in employer account creating the post
         // just to keep track of whos posting what, and also so the user can retreive their job postings theyve posted
         return (
-            <div className='JobPostWrapper'>
+            <div className='JobPostWrapper ui center aligned container'>
                 <h2>Post a Job</h2>
 
                 <form className='post-job-form'>
@@ -69,7 +69,7 @@ export default class JobPost extends Component {
                         Perks
                  
                         image */}
-                    <button className='submit-job'>Submit</button>
+                    <button className='ui button submit-job'>Submit</button>
                 </form>
             </div>
         );
