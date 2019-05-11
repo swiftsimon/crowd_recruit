@@ -42,7 +42,7 @@ class Login extends Component {
     } else {
       form = <div>
         You Are Logged In,
-        <Link to="/jobs">View Jobs Now</Link>
+        <Link to="/view-jobs">View Jobs Now</Link>
         <button className="ui button" onClick={this.handleLogoutClick}>Log Out</button>
       </div>
     }
