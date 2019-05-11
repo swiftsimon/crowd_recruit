@@ -18,11 +18,9 @@ class App extends Component {
 
   constructor() {
     super();
-
   }
 
   componentDidMount() {
-    console.log("MOUNTED")
     window.addEventListener('load', function() {
       authTracker()
     });
