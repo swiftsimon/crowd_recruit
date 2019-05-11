@@ -4,6 +4,7 @@ import firebase from "firebase";
 // User authentication with Firebase 
 export const uiConfig = {
   signInSuccessUrl: 'www.google.com', // direct here on success
+  signInFlow: 'popup',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
