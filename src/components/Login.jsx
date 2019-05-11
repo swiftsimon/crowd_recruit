@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ui, uiConfig } from '../services/authConfig';
+import * as firebaseui from 'firebaseui';
+import firebase from "firebase";
 
 import Form from './Form';
 
@@ -15,6 +18,7 @@ class Login extends Component {
       isLoggedIn: false,
       showForm: true,
     }
+    this.ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
   }
 
   fakeLogin = () => {
@@ -31,28 +35,20 @@ class Login extends Component {
     });
   }
 
+  authenticate() {
+    ui.start('#firebaseui-auth-container', uiConfig);
+  }
+
   render() {
     const isLoggedIn = this.state.isLoggedIn;
     const showForm = this.state.showForm;
-    let button;
-    let form;
-
-    if(showForm) {
-      form = <Form />
-    } else {
-      form = <div>
-        You Are Logged In,
-        <Link to="/view-jobs">View Jobs Now</Link>
-        <button className="ui button" onClick={this.handleLogoutClick}>Log Out</button>
-      </div>
-    }
+ 
     console.log(this.state)
 
-
     return(
-    <div className="login-form">
-      { form }
-      <button className="ui button" onClick={ this.fakeLogin }>Fake Login</button>
+    <div className="ui center aligned container">
+      <div id="firebaseui-auth-container"></div>
+      <button className="ui button" onClick={this.authenticate}>Log In</button>
     </div>
     )
   }
