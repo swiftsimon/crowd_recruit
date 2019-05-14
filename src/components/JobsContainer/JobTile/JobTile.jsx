@@ -51,6 +51,10 @@ class JobTile extends Component {
           <div className="jobs-right">
             <div className='job-icons'>
               <button onClick={ this.toggleFlyout }>&rarr;</button>
+
+              {/* in time we will need to connect this to the users logged in id when 
+              they favourite a job. it will post this job under their id in the database
+              so when they go to the favourites page we will search favourites based on user id */}
               <button>&#x271A;</button>
             </div>
           </div>
