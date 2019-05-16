@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Firebase from '../../services/firebase';
 import JobTile from './JobTile/JobTile';
 import SearchBar from '../SearchBar/SearchBar';
 import PostJob from './PostJob/PostJob';
+import firebase from 'firebase';
 
 import './JobsContainer.scss';
 
@@ -18,7 +18,7 @@ class JobsContainer extends Component {
       jobList: {},
     }
 
-    Firebase.ref('JOBS').once('value').then(function(snapshot) {
+    firebase.database().ref('JOBS').once('value').then(function(snapshot) {
       let jobList = snapshot.val();
       tag.setState({
         jobList,
@@ -33,6 +33,7 @@ class JobsContainer extends Component {
 
   render() {
     const JobTiles = Object.values(this.state.jobList).map((item,index) => {
+      console.log('item', item)
       return <JobTile key={ index } jobInfo={ Object.values(item[Object.keys(item)])[0] } toggleFlyout={ this.toggleFlyout } />;
     });
 

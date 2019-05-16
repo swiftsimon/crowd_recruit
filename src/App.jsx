@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import './services/firebase';
 import * as firebaseui from 'firebaseui';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import Firebase from './services/firebase';
 import authTracker from './services/authTracker';
-
 import './App.scss';
 // import faker from 'faker';
 import Home from './components/Home';
@@ -28,7 +26,7 @@ class App extends Component {
 
   retrieve = () => {
     console.log(uniqid())
-    var ref = Firebase.ref("JOBS/Toronto");
+    var ref = firebase.database().ref("JOBS/Toronto");
     ref.once("value")
       .then(function (snapshot) {
         console.log(snapshot.val())
