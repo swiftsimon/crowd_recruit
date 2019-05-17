@@ -23,17 +23,16 @@ class JobTile extends Component {
     });
   }
 
-  addToFavourites() {
-  //   Firebase.ref(`Favourites/${ generateUID() }/${ this.locationRef.current.value }/${ this.companyRef.current.value }`).set({
-  //     ...jobPostData
-  // });
+  addToFavourites(loggedInUser, jobId) {
+    firebase.database().ref(`FAVOURITES/userId-${ loggedInUser.uid }/${ jobId }`).set({
+      jobId
+  });
   }
 
   render() {
-
     const loggedInUser = firebase.auth().currentUser;
-    console.log('user', loggedInUser.uid)
     const {
+      uid,
       title, 
       company, 
       location, 
@@ -65,7 +64,7 @@ class JobTile extends Component {
               {/* in time we will need to connect this to the users logged in id when 
               they favourite a job. it will post this job under their id in the database
               so when they go to the favourites page we will search favourites based on user id */}
-              <button onClick={ this.addToFavourites }>&#x271A;</button>
+              <button onClick={ () => this.addToFavourites(loggedInUser, uid) }>&#x271A;</button>
             </div>
           </div>
         </div>

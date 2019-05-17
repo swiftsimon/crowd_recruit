@@ -22,7 +22,9 @@ export default class JobPost extends Component {
         postJobForm.addEventListener('submit', (e) => {
             e.preventDefault();
             // note: add some code to stop form from submitting if location is '--select location--'
+            const uid = generateUID();
             const jobPostData = {
+                uid,
                 title: this.titleRef.current.value,
                 company: this.companyRef.current.value,
                 location: this.locationRef.current.value,

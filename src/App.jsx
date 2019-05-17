@@ -9,6 +9,7 @@ import './App.scss';
 import Home from './components/Home';
 import Login from './components/Login';
 import JobsContainer from './components/JobsContainer/JobsContainer';
+import Favourites from './components/Favourites/Favourites';
 
 var uniqid = require('uniqid');
 
@@ -54,11 +55,13 @@ class App extends Component {
             <Link to="/login">Login</Link>
             <Link to="/post-job">Post A Job</Link>
             <Link to="/view-jobs">View Jobs</Link>
+            <Link to="/favourites">My Favourites</Link>
           </div>
           <div className="login-form-container">
             <Route path="/login" component={ Login } />
             <Route path="/post-job" component={ JobsContainer } />
             <Route path="/view-jobs" component={ JobsContainer } />
+            <Route path="/favourites" component={ Favourites } />
           </div>
         </div>
       </Router>
