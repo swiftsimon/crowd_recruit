@@ -16,9 +16,11 @@ class ViewJobs extends Component {
       jobList: {},
     }
 
+    this.removeFavouriteFromState = this.removeFavouriteFromState.bind(this);
+
     switch(this.props.location.pathname) {
       case '/favourites': {
-        let jobList = [];
+        let jobList = {};
         // get list all of job ids in favourites
         firebase.database().ref('FAVOURITES').once('value').then(function(snapshot) {
           let usersFavList = snapshot.val();
@@ -33,12 +35,13 @@ class ViewJobs extends Component {
                   Object.keys(usersFavList).forEach((item, index) => {
                     // match item against the job list and if they match, pull the object
                     if(Object.keys(allJobs).includes(item)) {
-                      jobList.push(allJobs[item]);
+                      jobList[item] = allJobs[item];
                     }
                   });
                   tag.setState({
                     jobList
-                  });    
+                  });
+                  
                 });
               }
             });
@@ -61,8 +64,12 @@ class ViewJobs extends Component {
 
       default: return;
     }
+  }
 
-
+  removeFavouriteFromState(jobId) {
+    const jobList = Object.assign({}, this.state.jobList);
+    delete jobList[jobId];
+    this.setState({ jobList });
   }
 
   onTermSubmit = (query) => {
@@ -75,13 +82,17 @@ class ViewJobs extends Component {
     switch(this.props.location.pathname) {
       case '/favourites': {
         if (Object.keys(this.state.jobList).length) {
-          console.log('hi', this.state.jobList)
           JobTiles = Object.values(this.state.jobList).map((item,index) => {
-            return <JobTile key={ index } jobInfo={ Object.values(item)[0] } toggleFlyout={ this.toggleFlyout } />;
+            return <JobTile 
+              key={ index } 
+              jobInfo={ Object.values(item)[0] } 
+              toggleFlyout={ this.toggleFlyout } 
+              removeFavouriteFromState={ this.removeFavouriteFromState }
+              location={ this.props.location.pathname }
+              />;
           });
         } else {
-          console.log('bye')
-          JobTiles = <h2>You have no jobs favourited yet.</h2>
+          JobTiles = <h2>You have 0 job listings favourited.</h2>
         }
         break;
       }
@@ -89,17 +100,21 @@ class ViewJobs extends Component {
       case '/view-jobs': {
         if (this.state.jobList) {
           JobTiles = Object.values(this.state.jobList).map((item,index) => {
-            return <JobTile key={ index } jobInfo={ Object.values(item)[0] } toggleFlyout={ this.toggleFlyout } />;
+            return <JobTile 
+              key={ index } 
+              jobInfo={ Object.values(item)[0] } 
+              toggleFlyout={ this.toggleFlyout }
+              location={ this.props.location.pathname }
+              />;
           });
         } else {
-          JobTiles = <h2>There are no jobs to view.</h2>
+          JobTiles = <h2>There are 0 jobs to view.</h2>
         }
         break;
       }
 
       default: return;
     }
-
 
     return (
       <div className='JobsContainerWrapper'>
