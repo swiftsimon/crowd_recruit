@@ -10,7 +10,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import ViewJobs from './components/ViewJobs/ViewJobs';
 import PostJob from './components/PostJob/PostJob';
-import Favourites from './components/Favourites/Favourites';
+// import Favourites from './components/Favourites/Favourites';
 
 var uniqid = require('uniqid');
 
@@ -37,6 +37,16 @@ class App extends Component {
       });
   }
 
+  logout = () => {
+    firebase.auth().signOut().then(function() {
+      // TODO refresh APP state once a user logs out 
+      // Currently favourites still show after log out
+      console.log('Signed Out');
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });
+  }
+
   render() {
     return (
       <Router>
@@ -50,6 +60,7 @@ class App extends Component {
             <div id="sign-in-status"></div>
             <div id="sign-in"></div>
             <pre id="account-details"></pre>
+            <button className="ui button" onClick={this.logout}>Log Out</button>
 
           </header> 
           <div className="home-grid">
