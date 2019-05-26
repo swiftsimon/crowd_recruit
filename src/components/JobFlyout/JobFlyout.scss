@@ -1,0 +1,50 @@
+.flyout-container {
+    width: 400px;
+    border: 3px solid #000;
+    padding: 15px;
+    margin-left: 30px;
+
+    div {
+        margin-top: 15px;
+    }
+
+    .flyout-title-container {
+        display: flex;
+        margin-top: 0;
+
+        h2 {
+            margin: 0;
+            font-size: 16px;
+            flex-basis: 50%;
+
+            &.flyout-company-name {
+                text-align: right;
+            }
+        }
+    }
+
+    .flyout-haves-container {
+        display: flex;
+
+        div {
+            flex-basis: 50%;
+        }
+    }
+
+    .flyout-extras-container {
+        display: flex;
+
+        div {
+            flex-basis: 50%;
+        }
+    }
+
+    .flyout-apply-refer-button {
+        display: block;
+        margin: 25px auto 0;
+        cursor: pointer;
+        width: 100px;
+        height: 50px;
+    }
+
+}
