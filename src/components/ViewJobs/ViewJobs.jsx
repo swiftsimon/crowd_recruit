@@ -25,7 +25,7 @@ class ViewJobs extends Component {
           if (usersFavList) {
             Object.keys(usersFavList).map((item, index) => {
               // get only the favourites that are under the current users id
-              if (item === firebase.auth().currentUser.uid) {
+              if (firebase.auth().currentUser && item === firebase.auth().currentUser.uid) {
                 usersFavList = usersFavList[item];
                 //get all jobs in the jobs database
                 firebase.database().ref('JOBS').once('value').then(function(snapshot) {
