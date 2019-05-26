@@ -74,11 +74,13 @@ class ViewJobs extends Component {
     let JobTiles;
     switch(this.props.location.pathname) {
       case '/favourites': {
-        if (this.state.jobList) {
+        if (Object.keys(this.state.jobList).length) {
+          console.log('hi', this.state.jobList)
           JobTiles = Object.values(this.state.jobList).map((item,index) => {
             return <JobTile key={ index } jobInfo={ Object.values(item)[0] } toggleFlyout={ this.toggleFlyout } />;
           });
         } else {
+          console.log('bye')
           JobTiles = <h2>You have no jobs favourited yet.</h2>
         }
         break;
