@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ViewJobs from '../ViewJobs/ViewJobs';
 
 export default class Favourites extends Component {
 
@@ -6,6 +7,7 @@ export default class Favourites extends Component {
         return (
             <div>
                 <h2>Your Favourites</h2>
+                <ViewJobs />
             </div>
         );
     }

@@ -8,7 +8,8 @@ import './App.scss';
 // import faker from 'faker';
 import Home from './components/Home';
 import Login from './components/Login';
-import JobsContainer from './components/JobsContainer/JobsContainer';
+import ViewJobs from './components/ViewJobs/ViewJobs';
+import PostJob from './components/PostJob/PostJob';
 import Favourites from './components/Favourites/Favourites';
 
 var uniqid = require('uniqid');
@@ -59,9 +60,9 @@ class App extends Component {
           </div>
           <div className="login-form-container">
             <Route path="/login" component={ Login } />
-            <Route path="/post-job" component={ JobsContainer } />
-            <Route path="/view-jobs" component={ JobsContainer } />
-            <Route path="/favourites" component={ Favourites } />
+            <Route path="/post-job" component={ PostJob } />
+            <Route path="/view-jobs" component={ ViewJobs } />
+            <Route path="/favourites" component={ ViewJobs } />
           </div>
         </div>
       </Router>
