@@ -25,7 +25,12 @@ class JobTile extends Component {
   addToFavourites(loggedInUser, jobId) {
     firebase.database().ref(`FAVOURITES/${ loggedInUser.uid }/${ jobId }`).set({
       jobId
-  });
+    });
+  }
+
+  removeFromFavourites(loggedInUser, jobId) {
+    firebase.database().ref(`FAVOURITES/${ loggedInUser.uid }/${ jobId }`).remove();
+    this.props.removeFavouriteFromState(jobId);
   }
 
   render() {
@@ -59,7 +64,8 @@ class JobTile extends Component {
           <div className="jobs-right">
             <div className='job-icons'>
               <button onClick={ this.toggleFlyout }>&rarr;</button>
-              <button onClick={ () => this.addToFavourites(loggedInUser, uid) }>&#x271A;</button>
+              { this.props.location === '/view-jobs' && <button onClick={ () => this.addToFavourites(loggedInUser, uid) }>&#x271A;</button> }
+              { this.props.location === '/favourites' && <button onClick={ () => this.removeFromFavourites(loggedInUser, uid) }>&minus;</button> }
             </div>
           </div>
         </div>
