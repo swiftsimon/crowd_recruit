@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Firebase from '../services/firebase';
 import SearchBar from './SearchBar';
 
 class JobTile extends Component {

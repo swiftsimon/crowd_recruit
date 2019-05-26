@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import JobFlyout from '../JobFlyout/JobFlyout';
+import firebase from 'firebase';
+import generateUID from 'uniqid';
 import './JobTile.scss';
 
 class JobTile extends Component {
@@ -14,16 +16,22 @@ class JobTile extends Component {
   }
 
   toggleFlyout() {
-    // make some api call to get flyout data and then mount flyout component with data as props
     let showFlyout = this.state.showFlyout ? false : true;
     this.setState({
       showFlyout,
     });
   }
 
+  addToFavourites(loggedInUser, jobId) {
+    firebase.database().ref(`FAVOURITES/${ loggedInUser.uid }/${ jobId }`).set({
+      jobId
+  });
+  }
+
   render() {
-    
+    const loggedInUser = firebase.auth().currentUser;
     const {
+      uid,
       title, 
       company, 
       location, 
@@ -51,7 +59,7 @@ class JobTile extends Component {
           <div className="jobs-right">
             <div className='job-icons'>
               <button onClick={ this.toggleFlyout }>&rarr;</button>
-              <button>&#x271A;</button>
+              <button onClick={ () => this.addToFavourites(loggedInUser, uid) }>&#x271A;</button>
             </div>
           </div>
         </div>

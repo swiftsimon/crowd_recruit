@@ -1,9 +1,9 @@
 import React, { Component, createRef } from 'react';
-import Firebase from '../../../services/firebase';
+import firebase from 'firebase';
 import generateUID from 'uniqid';
 import './PostJob.scss';
 
-export default class JobPost extends Component {
+export default class PostJob extends Component {
 
     constructor() {
         super();
@@ -22,7 +22,9 @@ export default class JobPost extends Component {
         postJobForm.addEventListener('submit', (e) => {
             e.preventDefault();
             // note: add some code to stop form from submitting if location is '--select location--'
+            const uid = generateUID();
             const jobPostData = {
+                uid,
                 title: this.titleRef.current.value,
                 company: this.companyRef.current.value,
                 location: this.locationRef.current.value,
@@ -32,7 +34,7 @@ export default class JobPost extends Component {
                 roleDetails: this.roleDetailsRef.current.value,
             }
 
-            Firebase.ref(`JOBS/${ generateUID() }/${ this.locationRef.current.value }/${ this.companyRef.current.value }`).set({
+            firebase.database().ref(`JOBS/${ uid }/${ this.locationRef.current.value }`).set({
                 ...jobPostData
             });
         });
