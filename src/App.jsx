@@ -10,7 +10,6 @@ import Home from './components/Home';
 import Login from './components/Login';
 import ViewJobs from './components/ViewJobs/ViewJobs';
 import PostJob from './components/PostJob/PostJob';
-// import Favourites from './components/Favourites/Favourites';
 
 var uniqid = require('uniqid');
 
@@ -18,6 +17,16 @@ class App extends Component {
 
   constructor() {
     super();
+    const tag = this;
+    this.state = {
+      user: {},
+    }
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      tag.setState({
+        user
+      });
+    });
   }
 
   componentDidMount() {
@@ -67,13 +76,13 @@ class App extends Component {
             <Link to="/login">Login</Link>
             <Link to="/post-job">Post A Job</Link>
             <Link to="/view-jobs">View Jobs</Link>
-            <Link to="/favourites">My Favourites</Link>
+            { ( this.state.user !== null ) && <Link to="/favourites">My Favourites</Link> }
           </div>
           <div className="login-form-container">
             <Route path="/login" component={ Login } />
             <Route path="/post-job" component={ PostJob } />
             <Route path="/view-jobs" component={ ViewJobs } />
-            <Route path="/favourites" component={ ViewJobs } />
+            { ( this.state.user !== null ) && <Route path="/favourites" component={ ViewJobs } /> }
           </div>
         </div>
       </Router>
