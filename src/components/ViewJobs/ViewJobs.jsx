@@ -78,6 +78,7 @@ class ViewJobs extends Component {
   }
 
   render() {
+    console.log('testing456', firebase.auth())
     let JobTiles;
     switch(this.props.location.pathname) {
       case '/favourites': {
