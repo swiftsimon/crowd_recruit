@@ -17,6 +17,7 @@ class ViewJobs extends Component {
     }
 
     this.removeFavouriteFromState = this.removeFavouriteFromState.bind(this);
+    this.onCitySearch = this.onCitySearch.bind(this);
 
     switch(this.props.location.pathname) {
       case '/favourites': {
@@ -72,9 +73,33 @@ class ViewJobs extends Component {
     this.setState({ jobList });
   }
 
-  onTermSubmit = (query) => {
+
+  // Send City search term and retreive jobs
+  onCitySearch = (query) => {
+    let tag = this;
     console.log("searching for", query)
-    // TODO send query to database
+    let jobList;
+
+    firebase.database().ref('/JOBS/'+query).once('value').then(function(snapshot) {
+      let jobListReturned = snapshot.val();
+      jobList = {query: jobListReturned}
+      tag.setState({
+        jobList,
+      });
+    });
+  }
+
+  onTitleSearch = (query) => {
+    let tag = this;
+    let jobList;
+
+    firebase.database().ref('/JOBS/').once('value').then(function(snapshot) {
+    // TODO filter based on query term
+      jobList = snapshot.val();
+      tag.setState({
+        jobList,
+      });
+    });
   }
 
   render() {
@@ -119,7 +144,7 @@ class ViewJobs extends Component {
 
     return (
       <div className='JobsContainerWrapper'>
-        { this.props.location.pathname === '/view-jobs' && <SearchBar onTermSubmit={ this.onTermSubmit }/> }
+        { this.props.location.pathname === '/view-jobs' && <SearchBar onCitySearch={ this.onCitySearch } onTitleSearch={ this.onTitleSearch }/> }
         <div className='jobs-container'>
             { JobTiles }
         </div>

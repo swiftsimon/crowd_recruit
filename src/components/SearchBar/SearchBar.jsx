@@ -2,26 +2,46 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   state = {
-    searchTerm: ''
+    citySearchTerm: '',
+    titleSearchTerm: '',
   }
 
-  onFormSubmit = (e) => {
+  onCitySearch = (e) => {
     e.preventDefault();
-    this.props.onTermSubmit(this.state.searchTerm);
+    this.props.onCitySearch(this.state.citySearchTerm);
+  }
+
+  onTitleSearch = (e) => {
+    e.preventDefault();
+    this.props.onTitleSearch(this.state.titleSearchTerm)
   }
 
   render() {
     return(
-      <div className="ui segment search-container">
-        <form onSubmit={ this.onFormSubmit } className="ui form">
-          <label>Job Search</label>
+      <div>
+        <div className="ui segment search-container">
+        <span>Search by City</span>
+          <form onSubmit={ this.onCitySearch } className="ui form">
+            <label>City</label>
+            <input 
+              type="text"
+              value={this.state.citySearchTerm}
+              onChange={ (e) => this.setState({citySearchTerm: e.target.value})}
+            />
+          </form>
+        </div>
+        <div className="ui segment search-container">
+        <span>Search by Job Title</span>
+        <form onSubmit={ this.onTitleSearch } className="ui form">
+          <label>Job Title</label>
           <input 
             type="text"
-            value={this.state.searchTerm}
-            onChange={ (e) => this.setState({searchTerm: e.target.value})}
+            value={this.state.titleSearchTerm}
+            onChange={ (e) => this.setState({titleSearchTerm: e.target.value})}
           />
         </form>
       </div>
+    </div>
     )
   }
 }

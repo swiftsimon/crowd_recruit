@@ -34,8 +34,19 @@ export default class PostJob extends Component {
                 roleDetails: this.roleDetailsRef.current.value,
             }
 
-            firebase.database().ref(`JOBS/${ uid }/${ this.locationRef.current.value }`).set({
+            firebase.database().ref(`JOBS/${ this.locationRef.current.value }/${ uid }`).set({
                 ...jobPostData
+            }).then((e) => {
+                console.log("SUCCESS", e);
+                // clear the fields after submit
+                this.titleRef.current.value = "";
+                this.companyRef.current.value = "";
+                this.locationRef.current.value = "";
+                this.taglineRef.current.value = "";
+                this.shortDescRef.current.value = "";
+                this.longDescRef.current.value = "";
+                this.roleDetailsRef.current.value = "";
+
             });
         });
       }
@@ -50,9 +61,10 @@ export default class PostJob extends Component {
                 <form className='post-job-form'>
                     <input ref={ this.titleRef } type='text' placeholder='Job Title...' />
                     <input ref={ this.companyRef } type='text' placeholder='Company Name...' />
-                    <select ref={ this.locationRef }>
-                        <option defaultValue="--Select Location--">--Select Location--</option>
+                    <select ref={ this.locationRef } placeholder="Select City">
                         <option value='Toronto'>Toronto</option>
+                        <option value='Waterloo'>Waterloo</option>
+                        <option value='Hamilton'>Hamilton</option>
                     </select>
 
                     <input ref={ this.taglineRef } type='text' placeholder='Cool tagline...' />
