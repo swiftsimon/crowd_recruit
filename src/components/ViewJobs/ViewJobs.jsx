@@ -78,7 +78,6 @@ class ViewJobs extends Component {
   onCitySearch = (query) => {
     let tag = this;
     console.log("searching for", query)
-    // TODO send query to database
     let jobList;
 
     firebase.database().ref('/JOBS/'+query).once('value').then(function(snapshot) {
