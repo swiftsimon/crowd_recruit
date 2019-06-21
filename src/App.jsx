@@ -61,18 +61,17 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <Link className="home-button" to="/">HOME</Link>
             <div className="app-title">
               Crowd Sourced Tech Recruiting
             </div>
-
-            <div id="sign-in-status"></div>
-            <div id="sign-in"></div>
+            {/* Empty divs for auth hooks */}
+            <div class="signin-status" id="sign-in-status"></div>
+            <div class="signin-status" id="sign-in"></div>
             <pre id="account-details"></pre>
-            <button className="ui button" onClick={this.logout}>Log Out</button>
-
+            <button className="button-main" onClick={this.logout}>Log Out</button>
           </header> 
           <div className="home-grid">
+            <Link to="/">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/post-job">Post A Job</Link>
             <Link to="/view-jobs">View Jobs</Link>
