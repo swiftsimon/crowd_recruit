@@ -48,7 +48,7 @@ class Login extends Component {
     return(
     <div className="ui center aligned container">
       <div id="firebaseui-auth-container"></div>
-      <button className="ui button" onClick={this.authenticate}>Log In</button>
+      <button className="button-main" onClick={this.authenticate}>Log In</button>
     </div>
     )
   }

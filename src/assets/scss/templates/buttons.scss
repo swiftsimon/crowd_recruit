@@ -1,0 +1,19 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.button-main {
+  width: 20rem;
+  height: 5rem;
+  background-color: transparent;
+  color: $dark;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  margin: 1rem;
+  
+  &:focus {
+    border: none;
+    text-decoration: none;
+  }
+}
