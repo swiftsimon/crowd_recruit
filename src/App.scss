@@ -1,3 +1,5 @@
+@import './assets/scss/main.scss';
+
 *,
 *::after,
 *::before {
@@ -6,18 +8,30 @@
   box-sizing: inherit; 
 }
 
-.App {
-  
-}
-
 .App-header {
-  background-color: #575a5f;
-  min-height: 30vh;
-  text-align: center;
-  display: grid;
-  grid-template-columns: calc(50px + 5vw) auto calc(50px + 5vw);
-  grid-template-rows: 50px auto 50px;
-  color: white;
+  background-image: url(./assets/pool.jpg);
+  height: 90vh;
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  color: $dark;
+
+  & .app-title {
+    color: $dark;
+    font-size: 5rem;
+    font-weight: 600;
+
+    position: absolute;
+    top: 75%;
+    left: 10%;
+  }
+
+  & .signin-status {
+    position: absolute;
+    top: 90%;
+    left: 10%;
+    font-size: 2rem;
+  }
 }
 
 .ui.button {
@@ -31,17 +45,12 @@
   font-size: 25px;
 }
 
-.app-title {
-  grid-column: 2 / 2;
-  grid-row: 2 / 2;
-  font-size: calc(20px + 2vw);
-  padding-top: 10px;
-}
-
 .home-grid {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  width: 60%;
+
+  margin-left: 20%;
 }
 
 .home-grid a {
