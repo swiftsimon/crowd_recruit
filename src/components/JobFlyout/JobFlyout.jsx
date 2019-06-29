@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './JobFlyout.scss';
 
 export default class Flyout extends Component {
@@ -48,7 +49,8 @@ export default class Flyout extends Component {
                     </div>
                 </div>
                 
-                <button className='flyout-apply-refer-button'>Apply or Refer</button>
+                {/* <button className='flyout-apply-refer-button'>Apply or Refer</button> */}
+                <Link to="/apply">Apply or Refer</Link>
 
                 <div className='flyout-image'>
 
