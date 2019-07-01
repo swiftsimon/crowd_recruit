@@ -1,7 +1,38 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './JobFlyout.scss';
 
 export default class Flyout extends Component {
+
+    constructor() {
+        super();
+
+        this.email = createRef('email');
+        this.number = createRef('number');
+    }
+
+    componentDidMount() {
+        const form = document.querySelector('.referral-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (this.email.current.value) {
+                axios.post('http://localhost:4000/api/email', {
+                    email: this.email.current.value
+                });
+            }
+
+            if (this.number.current.value) {
+                axios.post('http://localhost:4000/api/text', 
+                    { 
+                        number: this.number.current.value, 
+                        message: 'Check out this cool Job Opportunity at www.crowdrecruit.com' 
+                    }
+                );
+            }
+        });
+    }
 
     render() {
 
@@ -47,9 +78,16 @@ export default class Flyout extends Component {
                         Perks
                     </div>
                 </div>
-                
-                <button className='flyout-apply-refer-button'>Apply or Refer</button>
 
+                <form className="referral-form">
+                    <label for="email">Email: </label>
+                    <input ref={this.email} type="text" className="email" />
+                    <br />
+                    <label for="text">Cell# Text: </label>
+                    <input ref={this.number} type="tel" className="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+                    <br />
+                    <button>Submit Referral</button>
+                </form>
                 <div className='flyout-image'>
 
                 </div>            
