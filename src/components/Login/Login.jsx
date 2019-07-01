@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ui, uiConfig } from '../services/authConfig';
+import { ui, uiConfig } from '../../services/authConfig';
 import * as firebaseui from 'firebaseui';
 import firebase from "firebase";
 
-import Form from './Form';
+import Form from '../Form';
 
-import "../App.scss";
+import "../../App.scss";
 
 class Login extends Component {
 
@@ -46,7 +46,7 @@ class Login extends Component {
     console.log(this.state)
 
     return(
-    <div className="ui center aligned container">
+    <div className="login_container ui center aligned container">
       <div id="firebaseui-auth-container"></div>
       <button className="button-main" onClick={this.authenticate}>Log In</button>
     </div>
