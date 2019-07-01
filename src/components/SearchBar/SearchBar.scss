@@ -1,3 +1,32 @@
+
 .ui.form > label {
   font-size: 30px;
+}
+
+.search-bar-wrapper {
+  display: flex;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+
+  .search-container {
+    width: 40%;
+
+    & form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & label {
+      font-size: 5rem;
+    }
+
+    & input {
+      height: 7rem;
+      width: 90%;
+      font-size: 5rem;
+      border: 1.5px solid grey;
+    }
+  }
 }

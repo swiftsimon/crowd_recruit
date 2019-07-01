@@ -8,6 +8,19 @@
   box-sizing: inherit; 
 }
 
+// So 1rem = 10px
+html {
+  font-size: 56.25%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  // default font color for entitre body
+  color: #777;
+  box-sizing: border-box; }
+
 .App-header {
   background-image: url(./assets/pool.jpg);
   height: 90vh;
