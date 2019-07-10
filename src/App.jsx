@@ -8,6 +8,7 @@ import './App.scss';
 import Login from './components/Login/Login';
 import ViewJobs from './components/ViewJobs/ViewJobs';
 import PostJob from './components/PostJob/PostJob';
+import Single from './components/Single/Single';
 
 var uniqid = require('uniqid');
 
@@ -80,6 +81,7 @@ class App extends Component {
             <Route path="/post-job" component={ PostJob } />
             <Route path="/view-jobs" component={ ViewJobs } />
             { ( this.state.user !== null ) && <Route path="/favourites" component={ ViewJobs } /> }
+            <Route path="/:id" component={ Single } />
           </div>
         </div>
       </Router>
