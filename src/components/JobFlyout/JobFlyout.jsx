@@ -81,7 +81,7 @@ export default class Flyout extends Component {
 
                 <form className="referral-form">
                     <label for="email">Email: </label>
-                    <input ref={this.email} type="text" className="email" />
+                    <input ref={this.email} type="email" className="email" />
                     <br />
                     <label for="text">Cell# Text: </label>
                     <input ref={this.number} type="tel" className="text" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
