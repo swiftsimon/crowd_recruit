@@ -7,7 +7,7 @@
     "faker": "^4.1.0",
     "firebase": "^5.9.2",
     "firebaseui": "^3.6.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^5.0.0",
